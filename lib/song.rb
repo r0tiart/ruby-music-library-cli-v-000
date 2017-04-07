@@ -33,4 +33,12 @@ class Song
     @genre = name
   end
 
+  def self.new_from_filename(file)
+    elements = file.split(" - ")
+    new_song = Song.new(elements[1])
+    new_song.artist = Artist.new(elements[0])
+    new_song.genre = Genre.new(elements[2].split(".mp3")[0])
+    new_song
+  end
+
 end
